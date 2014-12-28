@@ -1,2 +1,5 @@
 .vagrant
 *.box
+.DS_Store
+wp-vagrant/db_dumps/
+wp-confg.php
