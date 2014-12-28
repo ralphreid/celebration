@@ -12,14 +12,14 @@ install_wordpress=true
 # if blank, then current stable version will be installed
 # wp_version="3.5.2"
 # wp_version="4.0-beta1"
-wp_version=""
+wp_version="4.1"
 
 # specify path (inside the Vagrant VM) to WordPress to allow wp-cli to do search and replace
 # this will normall be /vagrant unless you've made other config changes
 wp_path='/vagrant'
 
 #mysql root password
-mysql_root_password='root'
+mysql_root_password=echo $MYSQL_ROOT_PSWD
 
 
 ###############################################################################
@@ -27,7 +27,7 @@ mysql_root_password='root'
 #
 
 # name of database: eg wordpress
-wp_db_name='vagrant_test'
+wp_db_name='celebration_db'
 
 # database user name
 wp_db_user=''
