@@ -1,0 +1,27 @@
+.wpb_content_element, ul.wpb_thumbnails-fluid > li, .last_toggle_el_margin, .wpb_button {
+  margin-bottom: 0px!important;
+}
+.full-width-row .wpb_row {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.full-width-row .col-md-12 {
+  padding-left: 0;
+  padding-right: 0;
+  position: static;
+}
+
+.row.vertical-padding, .full-width-row.vertical-padding {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.wpb_text_column h4:last-child, .wpb_text_column h1:last-child, .wpb_text_column h2:last-child, .wpb_text_column h3:last-child {
+  margin-bottom: 10px;
+}
