@@ -4,3 +4,4 @@
 wp-vagrant/db_dumps/
 wp-confg.php
 wp-content/plugins/wordfence/tmp/configCache.php
+wp-vagrant/*.sql
