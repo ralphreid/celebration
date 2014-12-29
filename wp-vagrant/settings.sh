@@ -30,22 +30,22 @@ mysql_root_password='root'
 wp_db_name='celebration_db'
 
 # database user name
-wp_db_user=''
+wp_db_user='wp-dev'
 
 # database password
-wp_db_password=''
+wp_db_password='1234'
 
 ###############################################################################
 # WP admin / install
 #
 
-wp_admin_user='admin'
+wp_admin_user=''
 
-wp_admin_password='123'
+wp_admin_password=''
 
-wp_admin_email='root@example.com'
+wp_admin_email=''
 
-wp_site_title='Vagrant'
+wp_site_title=''
 
 
 
