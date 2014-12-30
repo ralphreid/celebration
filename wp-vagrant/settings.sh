@@ -54,9 +54,9 @@ wp_site_title=''
 #
 
 # set to true to import the database as part of the provisioning process
-import_database=true
+import_database=false
 
 # specify the domain that the imported dump file uses.
 # This allows us to search and replace the domain with nginx.local
 # eg: mysite.com
-import_site_domain='nginx.local'
+import_site_domain=''
