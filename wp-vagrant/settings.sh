@@ -27,13 +27,15 @@ mysql_root_password='root'
 #
 
 # name of database: eg wordpress
-wp_db_name='celebration_db'
-
+wp_db_name=$DB_NAME
+echo $wp_db_name
 # database user name
-wp_db_user=echo $MYSQL_ROOT_USER
+wp_db_user=$MYSQL_USER
+echo $wp_db_user
 
 # database password
-wp_db_password=echo $MYSQL_ROOT_PSWD
+wp_db_password=$MYSQL_PSWD
+echo $wp_db_password
 
 ###############################################################################
 # WP admin / install
@@ -54,7 +56,7 @@ wp_site_title=''
 #
 
 # set to true to import the database as part of the provisioning process
-import_database=false
+import_database=true
 
 # specify the domain that the imported dump file uses.
 # This allows us to search and replace the domain with nginx.local

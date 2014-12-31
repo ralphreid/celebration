@@ -3,7 +3,7 @@
 #
 # load environment variables file
 #
-. /vagrant/wp-vagrant/envs.sh
+. /vagrant/wp-vagrant/env_keys.sh
 
 # load settings file
 #
@@ -21,6 +21,11 @@ echo "**** add byobu config"
 
 echo "**** Moving nginx config files into place…"
 . /vagrant/wp-vagrant/nginx/nginx.sh
+
+echo "Starting services…"
+service nginx restart
+service php5-fpm restart
+service mysql restart
 
 echo "**** mysql config…"
 mv /etc/mysql/my.cnf /etc/mysql/my.cnf.default

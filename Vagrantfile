@@ -58,6 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
+  config.vm.provision :shell, :path => "wp-vagrant/env_keys.sh", privileged: false
   config.vm.provision :shell, :path => "wp-vagrant/bootstrap.sh"
   config.vm.network "private_network", ip: "192.168.50.2"
   config.vm.hostname = "nginx.local"
