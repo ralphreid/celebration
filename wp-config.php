@@ -19,10 +19,10 @@
 define('DB_NAME', 'celebration_db');
 
 /** MySQL database username */
-define('DB_USER', 'wp-dev');
+define('DB_USER', $_ENV['MYSQL_ROOT_USER']);
 
 /** MySQL database password */
-define('DB_PASSWORD', '1234');
+define('DB_PASSWORD', $_ENV['MYSQL_ROOT_PSWD']);
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
