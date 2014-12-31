@@ -19,7 +19,7 @@ wp_version=""
 wp_path='/vagrant'
 
 #mysql root password
-mysql_root_password=echo $MYSQL_ROOT_PSWD
+mysql_root_password='root'
 
 
 ###############################################################################
@@ -30,10 +30,10 @@ mysql_root_password=echo $MYSQL_ROOT_PSWD
 wp_db_name='celebration_db'
 
 # database user name
-wp_db_user='wp-dev'
+wp_db_user=echo $MYSQL_ROOT_USER
 
 # database password
-wp_db_password='1234'
+wp_db_password=echo $MYSQL_ROOT_PSWD
 
 ###############################################################################
 # WP admin / install
@@ -59,4 +59,4 @@ import_database=false
 # specify the domain that the imported dump file uses.
 # This allows us to search and replace the domain with nginx.local
 # eg: mysite.com
-import_site_domain=''
+import_site_domain='nginx.local'
