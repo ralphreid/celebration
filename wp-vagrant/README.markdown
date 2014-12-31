@@ -54,7 +54,9 @@ These instructions are OS X specific, but the overall solution should work on an
 * Install Vagrant triggers `vagrant plugin install vagrant-triggers`
 * Install vagrant-hostupdater `vagrant plugin install vagrant-hostsupdater`
 
+### Add environment variables
 
+* Add keys for guest in 'wp-vagrant/envs.sh'
 
 ### Fresh WP install
 

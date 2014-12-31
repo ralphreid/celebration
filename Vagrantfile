@@ -9,16 +9,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  # Add environment variables to guest
-  config.env.enable
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
-
-  config.vm.provider :mysql do |mysql, override|
-    mysql.root_pswd     = ENV['MYSQL_ROOT_PSWD']
-    # aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-  end
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.

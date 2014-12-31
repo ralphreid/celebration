@@ -19,7 +19,7 @@ wp_version=""
 wp_path='/vagrant'
 
 #mysql root password
-mysql_root_password='root'
+mysql_root_password=echo $MYSQL_ROOT_PSWD
 
 
 ###############################################################################
