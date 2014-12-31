@@ -3,7 +3,7 @@
 .vagrant/
 wp-vagrant/db_dumps/
 wp-vagrant/*.sql
-
+wp-vagrant/envs.sh
 wp-confg.php
 wp-content/uploads/backwpup-e424d1-logs/*
 wp-content/uploads/backwpup-e424d1-temp/*
