@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# load settings file
+# load environment variables file
 #
 . /vagrant/wp-vagrant/envs.sh
 
