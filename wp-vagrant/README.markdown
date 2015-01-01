@@ -56,7 +56,7 @@ These instructions are OS X specific, but the overall solution should work on an
 
 ### Add environment variables
 
-* Add keys for guest in 'wp-vagrant/envs.sh'
+* Add keys for guest in 'wp-vagrant/env_keys.sh'
 
 ### Fresh WP install
 
