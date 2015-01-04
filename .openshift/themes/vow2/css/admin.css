@@ -1,0 +1,143 @@
+.cleaner {
+	clear: both;
+}
+.span6 {
+	width: 30%;
+	float: left;
+	margin: 0 1% 10px 1%;
+}
+.span-half {
+	width: 48%;
+	float: left;
+	margin: 0 1% 10px 1%;
+}
+#wp-homepage_box1_content-wrap,#wp-homepage_box2_content-wrap {
+	min-height: 250px;
+}
+.homepage-boxes .wp-editor-wrap {
+	height: 250px;
+	width: 100%;
+}
+.homepage-boxes .wp-editor-area {
+	height: 216px;
+}
+.preview-icon {
+	margin-right: 5px;
+	float: left;
+	margin-top: 5px;
+}
+.quote-image, .quote-text {
+	width: 50%;
+	float: left;
+}
+.quote-text label {
+	float: left;
+	clear: left;
+	width: 100px;
+}
+.quote-text textarea {
+	float: left;
+	width: 300px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+.quote-text input {
+	float: left;
+	margin-bottom: 10px;
+}
+.color-label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+.generated-logo i {
+	
+}
+.shortcode {
+	padding: 20px;
+}
+.shortcode .content {
+	display: block;
+}
+.shortcode label {
+	float: left;
+	clear: left;
+	padding-top: 3px;
+	width: 120px;
+}
+.shortcode button {
+	float: left;
+	clear: left;
+	margin-bottom: 10px;
+	margin-left: 120px;
+}
+.shortcode button.no-margin {
+	margin-left: 0;
+}
+.shortcode input[type="text"], .shortcode textarea, .shortcode select {
+	float: left;
+	margin-bottom: 10px;
+}
+.shortcode input[type="text"] {
+	width: 150px;
+}
+.shortcode input.regular-text {
+	width: 150px;
+}
+.shortcode textarea {
+	height: 100px;
+	width: 200px;
+}
+.shortcode .shortcode-label {
+	width: 120px;
+	padding-top: 8px;
+}
+.shortcode .shortcode-input {
+	padding: 5px;
+	border: 2px solid #bbb;
+	width: 250px;
+}
+.shortcode .button-primary {
+	margin-left: 0px;
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+.shortcode h3 {
+	padding: 10px 0;
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+}
+.shortcode h4 {
+	clear: both;
+}
+.shortcode .generate {
+	margin-left: 1%;
+}
+.shortcode .add-group, .shortcode .add-bar,.shortcode .add-tab-group,.shortcode .add-testimonial {
+	display: block;
+	clear: both;
+	margin-bottom: 10px;
+}
+.add-tab-group {
+	margin-top: 10px;
+}
+.shortcode .tab_content {
+	clear: both;
+}
+.shortcode .tabs-group {
+	display: none;
+}
+.shortcode .tabs-group.visible {
+	display: block;
+}
+#box-meta-shortcodes {
+	display: none;
+}
+.fancybox-overlay {
+	z-index: 80!important;
+}
+.modal-body {
+  max-height: 559px!important;
+} 
