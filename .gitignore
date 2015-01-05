@@ -1,7 +1,3 @@
 .DS_Store
 .idea/
 .vagrant/
-wp-vagrant/db_dumps/
-wp-confg.php
-wp-content/uploads/backwpup-e424d1-logs/*
-wp-content/uploads/backwpup-e424d1-temp/*
