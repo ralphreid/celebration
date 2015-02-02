@@ -1,0 +1,46 @@
+.grid {
+	float: left;
+	margin-bottom: 2.127659574468%;
+	padding-top: 0;
+}
+
+.col-300,
+.col-460 {
+	display: inline;
+	margin-right: 2.127659574468%;
+}
+
+.col-300 {
+	width: 31.914893617021%;
+}
+
+.col-460 {
+	width: 48.936170212766%;
+}
+
+.col-940 {
+	width: 100%;
+}
+
+.fit {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.rsvp-error {
+    color: #e23a00;
+    border: 1px solid #e23a00;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.rsvp-success {
+    color: #00bd47;
+    border: 1px solid #00bd47;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.textarea-small {
+    height: 120px;
+}

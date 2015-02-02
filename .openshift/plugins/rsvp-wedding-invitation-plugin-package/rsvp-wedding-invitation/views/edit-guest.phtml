@@ -1,0 +1,67 @@
+<div id="icon-edit" class="icon32"><br /></div>
+<h2><?php _e('Edit Guest', 'wi-rsvp');?></h2>
+<br>
+<?php if (!empty($this->error)) { ?>
+<div id="message" class="updated fade">
+    <?php echo $this->error;?>
+</div>
+<?php } ?>
+<?php if (!empty($this->success)) { ?>
+    <div id="message" class="updated">
+        <?php echo $this->success;?><br>
+    </div>
+    <br>
+    <a href="<?php echo $this->url('index', array());?>"><?php _e('Back to Guests list', 'wi-rsvp');?></a> |
+    <a href="<?php echo $this->url('add-guest', array());?>"><?php _e('Add guest', 'wi-rsvp');?></a>
+<?php } else { ?>
+    <form name="vw_rsvp_edit_guest" action="<?php echo $this->url('edit-guest', array('id' => $this->guest->id));?>" method="post">
+        <?php wp_nonce_field('vw_rsvp_edit_guest'); ?>
+        <input type="hidden" name="id" value="<?php echo $this->guest->id;?>" />
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row"><label for="firstName"><?php _e('First Name', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="first_name" id="first_name" size="30" value="<?php echo esc_html($this->guest->first_name); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Last Name', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="last_name" id="last_name" size="30" value="<?php echo esc_html($this->guest->last_name); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Phone', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="phone" id="phone" size="30" value="<?php echo esc_html($this->guest->phone); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Email', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="email" id="email" size="30" value="<?php echo esc_html($this->guest->email); ?>" /></td>
+            </tr>
+            <tr>
+                <th scope="row"><label for="rsvpStatus"><?php _e('RSVP Status', 'wi-rsvp');?></label></th>
+                <td align="left">
+                    <select name="attending" id="attending" size="1">
+                        <option value="P" <?php echo ($this->guest->attending == 'P' ? ' selected="selected"' : ''); ?>><?php _e('Pending', 'wi-rsvp');?></option>
+                        <option value="Y" <?php echo ($this->guest->attending == 'Y' ? ' selected="selected"' : ''); ?>><?php _e('Yes', 'wi-rsvp');?></option>
+                        <option value="N" <?php echo ($this->guest->attending == 'N' ? ' selected="selected"' : ''); ?>><?php _e('No', 'wi-rsvp');?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Total menus', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="total" id="total" size="30" value="<?php echo intval($this->guest->total); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Kids menus', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="kids" id="kids" size="30" value="<?php echo intval($this->guest->kids); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Vegetarian menus', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="vegans" id="vegans" size="30" value="<?php echo intval($this->guest->vegans); ?>" /></td>
+            </tr>
+        </table>
+        <p class="submit">
+            <input type="submit" class="button-primary" value="<?php _e('Save', 'wi-rsvp'); ?>" />
+        </p>
+    </form>
+<?php
+}
+
+$this->appendScript('vw-rsvp-admin-js', $this->scripts_url. '/admin.js');

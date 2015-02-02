@@ -1,0 +1,14 @@
+<div style="background: #f3ece1; font-family: Georgia, serif; line-height: 1.5; padding: 20px 0;">
+    <div style="max-width: 700px; margin: 0 auto; background: #fff; border: 1px solid #ccc; padding: 20px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;">
+        <div style="border: 4px double #d2c1b4; padding: 5px; text-align: center;">
+            <img src="<?php echo $this->images_url;?>/invitation.png" style="max-width: 100%;" alt="header" />
+            <div style="padding: 20px;">
+                <p style="font-size: 18px;"><strong><?php _e('To', 'wi-rsvp');?>: <?php echo $this->to;?></strong></p>
+                <p style="font-size: 16px;"><?php echo esc_html($this->text);?></p>
+                <p style="font-size: 18px">
+                    <a href="<?php echo $this->rsvp_link;?>" style="color: #c6a790; text-decoration: none; padding: 10px 30px; border: 3px solid #c6a790; margin-top: 20px; display: inline-block;"><?php echo $this->rsvp_text;?></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

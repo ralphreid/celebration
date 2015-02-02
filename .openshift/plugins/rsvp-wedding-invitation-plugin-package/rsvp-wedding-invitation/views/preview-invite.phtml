@@ -1,0 +1,17 @@
+<div style="width: 1024px;">
+    <?php echo $this->render('invitation.phtml');?>
+</div>
+<form name="vw_rsvp_bulk_action" action="<?php echo $this->url('send-invites', array());?>" method="post">
+    <?php wp_nonce_field('vw_rsvp_bulk_action'); ?>
+    <input type="hidden" name="text" value="<?php echo esc_html($this->text);?>" />
+    <input type="hidden" name="rsvp_text" value="<?php echo esc_html($this->rsvp_text);?>" />
+    <input type="hidden" name="rsvp_link" value="<?php echo esc_url($this->rsvp_link);?>" />
+    <?php if (!empty($this->guests)) { ?>
+        <?php foreach ($this->guests as $guest) { ?>
+        <input type="hidden" name="guests[]" value="<?php echo $guest->id;?>" />
+        <?php } ?>
+    <?php } ?>
+    <p class="submit">
+        <input type="submit" class="button-primary" value="<?php _e('Back to Send invitation', 'wi-rsvp'); ?>" />
+    </p>
+</form>

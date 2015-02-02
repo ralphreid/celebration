@@ -1,0 +1,16 @@
+<div id="icon-edit" class="icon32"><br /></div>
+<h2><?php _e('Delete Guests', 'wi-rsvp');?></h2>
+<br>
+<?php if (!empty($this->error)) { ?>
+    <div id="message" class="updated fade">
+        <?php echo $this->error;?>
+    </div>
+<?php } ?>
+<?php if (!empty($this->success)) { ?>
+    <div id="message" class="updated">
+        <?php echo $this->success;?><br>
+    </div>
+    <br>
+<?php } ?>
+<a href="<?php echo $this->url('index', array());?>"><?php _e('Back to Guests list', 'wi-rsvp');?></a> |
+<a href="<?php echo $this->url('add-guest', array());?>"><?php _e('Add guest', 'wi-rsvp');?></a>

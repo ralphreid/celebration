@@ -1,0 +1,301 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wedding RSVP WP Plugin\n"
+"POT-Creation-Date: 2013-10-26 22:42+0200\n"
+"PO-Revision-Date: 2013-10-26 22:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: Gabriel Sava <varonel@gmail.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../classes/Db.class.php:22
+msgid "Table does not exist"
+msgstr ""
+
+#: ../classes/Rsvp.class.php:89
+msgid "RSVP"
+msgstr ""
+
+#: ../classes/RsvpController.class.php:139
+msgid "Guest info saved."
+msgstr ""
+
+#: ../classes/RsvpController.class.php:144
+#: ../classes/RsvpController.class.php:188
+#: ../classes/RsvpController.class.php:331
+msgid "Please fill in all the fields."
+msgstr ""
+
+#: ../classes/RsvpController.class.php:183
+msgid "Guest added."
+msgstr ""
+
+#: ../classes/RsvpController.class.php:202
+msgid "Guests deleted."
+msgstr ""
+
+#: ../classes/RsvpController.class.php:239
+msgid "Wedding invitation"
+msgstr ""
+
+#: ../classes/RsvpController.class.php:246
+msgid "invites sent successfully"
+msgstr ""
+
+#: ../classes/RsvpController.class.php:247
+msgid "errors"
+msgstr ""
+
+#: ../classes/RsvpController.class.php:261
+msgid "John Smith"
+msgstr ""
+
+#: ../classes/RsvpController.class.php:295
+msgid "Security check failed!"
+msgstr ""
+
+#: ../classes/RsvpController.class.php:314
+#: ../classes/RsvpController.class.php:324
+msgid "Your RSVP was submitted. Thank you."
+msgstr ""
+
+#: ../classes/RsvpController.class.php:317
+msgid "You are not on the guest list."
+msgstr ""
+
+#: ../classes/RsvpController.class.php:334
+msgid "Please input the code in the image correctly."
+msgstr ""
+
+#: ../classes/View.class.php:59
+msgid "No script to render"
+msgstr ""
+
+#: ../classes/View.class.php:62
+msgid "Script file missing"
+msgstr ""
+
+#: ../views/add-guest.phtml:2
+msgid "Add Guest"
+msgstr ""
+
+#: ../views/add-guest.phtml:14 ../views/bulk-delete.phtml:15
+#: ../views/edit-guest.phtml:14 ../views/send-invites.phtml:15
+msgid "Back to Guests list"
+msgstr ""
+
+#: ../views/add-guest.phtml:15
+msgid "Add another guest"
+msgstr ""
+
+#: ../views/add-guest.phtml:30 ../views/edit-guest.phtml:22
+#: ../views/index.phtml:52
+msgid "First Name"
+msgstr ""
+
+#: ../views/add-guest.phtml:34 ../views/edit-guest.phtml:26
+#: ../views/index.phtml:44
+msgid "Last Name"
+msgstr ""
+
+#: ../views/add-guest.phtml:38 ../views/edit-guest.phtml:30
+#: ../views/index.phtml:68 ../views/rsvp-form.phtml:44
+msgid "Phone"
+msgstr ""
+
+#: ../views/add-guest.phtml:42 ../views/edit-guest.phtml:34
+#: ../views/index.phtml:76 ../views/rsvp-form.phtml:51
+msgid "Email"
+msgstr ""
+
+#: ../views/add-guest.phtml:46 ../views/edit-guest.phtml:38
+msgid "RSVP Status"
+msgstr ""
+
+#: ../views/add-guest.phtml:49 ../views/edit-guest.phtml:41
+#: ../views/index.phtml:38
+msgid "Pending"
+msgstr ""
+
+#: ../views/add-guest.phtml:50 ../views/edit-guest.phtml:42
+#: ../views/index.phtml:36 ../views/index.phtml:131
+msgid "Yes"
+msgstr ""
+
+#: ../views/add-guest.phtml:51 ../views/edit-guest.phtml:43
+#: ../views/index.phtml:37 ../views/index.phtml:132
+msgid "No"
+msgstr ""
+
+#: ../views/add-guest.phtml:56 ../views/edit-guest.phtml:48
+msgid "Total menus"
+msgstr ""
+
+#: ../views/add-guest.phtml:60 ../views/edit-guest.phtml:52
+msgid "Kids menus"
+msgstr ""
+
+#: ../views/add-guest.phtml:64 ../views/edit-guest.phtml:56
+msgid "Vegetarian menus"
+msgstr ""
+
+#: ../views/add-guest.phtml:69 ../views/edit-guest.phtml:61
+msgid "Save"
+msgstr ""
+
+#: ../views/bulk-delete.phtml:2
+msgid "Delete Guests"
+msgstr ""
+
+#: ../views/bulk-delete.phtml:16 ../views/edit-guest.phtml:15
+#: ../views/send-invites.phtml:16
+msgid "Add guest"
+msgstr ""
+
+#: ../views/edit-guest.phtml:2
+msgid "Edit Guest"
+msgstr ""
+
+#: ../views/index.phtml:3
+msgid "Guests List"
+msgstr ""
+
+#: ../views/index.phtml:12
+msgid "Bulk Actions"
+msgstr ""
+
+#: ../views/index.phtml:13
+msgid "Send Invitation"
+msgstr ""
+
+#: ../views/index.phtml:14
+msgid "Delete"
+msgstr ""
+
+#: ../views/index.phtml:16
+msgid "Apply"
+msgstr ""
+
+#: ../views/index.phtml:16
+msgid "Are you sure"
+msgstr ""
+
+#: ../views/index.phtml:17
+msgid "+ Add guest"
+msgstr ""
+
+#: ../views/index.phtml:30
+msgid "Confirmed menus"
+msgstr ""
+
+#: ../views/index.phtml:31
+msgid "Total"
+msgstr ""
+
+#: ../views/index.phtml:32 ../views/index.phtml:93
+msgid "Kids"
+msgstr ""
+
+#: ../views/index.phtml:33 ../views/index.phtml:101
+msgid "Vegetarians"
+msgstr ""
+
+#: ../views/index.phtml:35
+msgid "Responses"
+msgstr ""
+
+#: ../views/index.phtml:60
+msgid "Attending"
+msgstr ""
+
+#: ../views/index.phtml:84
+msgid "Total Menus"
+msgstr ""
+
+#: ../views/index.phtml:108
+msgid "Invited"
+msgstr ""
+
+#: ../views/index.phtml:116 ../views/rsvp-form.phtml:66
+msgid "Message"
+msgstr ""
+
+#: ../views/index.phtml:133
+msgid "Response Pending"
+msgstr ""
+
+#: ../views/invitation.phtml:5
+msgid "Wedding Invitation"
+msgstr ""
+
+#: ../views/invitation.phtml:8
+msgid "To"
+msgstr ""
+
+#: ../views/preview-invite.phtml:15
+msgid "Back to Send invitation"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:30
+msgid "First name"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:37
+msgid "Last name"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:60
+msgid "I will attend"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:63
+msgid "Sorry, I will no be able to attend"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:74
+msgid "Nr. of persons attending"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:81
+msgid "Nr. of kids menus"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:88
+msgid "Nr. of vegetarian menus"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:96
+msgid "Input the code in the image"
+msgstr ""
+
+#: ../views/rsvp-form.phtml:107
+msgid "Complete RSVP"
+msgstr ""
+
+#: ../views/send-invites.phtml:2
+msgid "Send invitation"
+msgstr ""
+
+#: ../views/send-invites.phtml:24
+msgid "Text"
+msgstr ""
+
+#: ../views/send-invites.phtml:33
+msgid "Preview invite"
+msgstr ""
+
+#: ../views/send-invites.phtml:34
+msgid "Send invites"
+msgstr ""
+
+#: ../views/send-invites.phtml:38
+msgid "Selected guests"
+msgstr ""

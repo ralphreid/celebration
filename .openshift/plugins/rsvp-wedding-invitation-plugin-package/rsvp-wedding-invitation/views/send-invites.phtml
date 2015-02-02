@@ -1,0 +1,55 @@
+<div id="icon-edit" class="icon32"><br /></div>
+<h2><?php _e('Send invitation', 'wi-rsvp');?></h2>
+<br>
+<?php if (!empty($this->error)) { ?>
+    <div id="message" class="updated fade">
+        <?php echo $this->error;?>
+    </div>
+<?php } ?>
+<?php if (!empty($this->success)) { ?>
+    <div id="message" class="updated">
+        <?php echo $this->success;?><br>
+    </div>
+    <br>
+<?php } ?>
+<a href="<?php echo $this->url('index', array());?>"><?php _e('Back to Guests list', 'wi-rsvp');?></a> |
+<a href="<?php echo $this->url('add-guest', array());?>"><?php _e('Add guest', 'wi-rsvp');?></a>
+<?php if (!empty($this->guests)) { ?>
+    <form name="vw_rsvp_send_invites" id="vw_rsvp_send_invites" action="<?php echo $this->url('preview-invite', array());?>" method="post">
+        <input type="hidden" id="send_invite_url" value="<?php echo $this->url('send-invites', array());?>" />
+        <?php wp_nonce_field('vw_rsvp_send_invites'); ?>
+        <table class="form-table">
+            <tr valign="top">
+                <td style="width: 600px;">
+                    <span style="font-weight: bold; font-size: 14px;"><?php _e('Text', 'wi-rsvp');?>:</span>
+                    <br>
+                    <textarea name="text" id="text" style="width: 500px; height: 250px;"><?php echo (!empty($this->text) ? esc_html($this->text) : '');?></textarea><br>
+                    <label for="rsvp_text" style="font-weight: bold;">RSVP link text:</label><br>
+                    <input style="width: 490px;" name="rsvp_text" id="rsvp_text" value="<?php echo (!empty($this->rsvp_text) ? esc_html($this->rsvp_text) : 'Please RSVP online here');?>" /><br>
+                    <br>
+                    <label for="rsvp_link" style="font-weight: bold;">RSVP link:</label><br>
+                    <input style="width: 490px;" name="rsvp_link" id="rsvp_link" value="<?php echo (!empty($this->rsvp_link) ? esc_html($this->rsvp_link) : bloginfo('url'));?>" />
+                    <p class="submit">
+                        <input type="submit" class="button-primary" value="<?php _e('Preview invite', 'wi-rsvp'); ?>" />
+                        <input type="submit" id="send" name="send" class="button-primary" value="<?php _e('Send invites', 'wi-rsvp'); ?>" />
+                    </p>
+                </td>
+                <td>
+                    <span style="font-weight: bold; font-size: 14px;"><?php _e('Selected guests', 'wi-rsvp');?>:</span>
+                    <br>
+                    <br>
+                    <div style="width: 320px; height: auto;">
+                        <?php foreach ($this->guests as $guest) { ?>
+                            <div style="width: 150px; height: 20px; float: left; margin-right: 10px;">
+                                <input type="checkbox" name="guests[]" value="<?php echo $guest->id;?>" checked="checked" id="guest_<?php echo $guest->id;?>">
+                                <label for="guest_<?php echo $guest->id;?>"><?php echo $guest->first_name;?>&nbsp;<?php echo $guest->last_name;?></label>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+<?php } ?>
+<?php
+$this->appendScript('vw-rsvp-admin-js', $this->scripts_url. '/admin.js');

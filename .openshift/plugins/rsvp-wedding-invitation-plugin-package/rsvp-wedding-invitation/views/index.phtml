@@ -1,0 +1,175 @@
+<div class="wrap">
+    <div id="icon-edit" class="icon32"><br /></div>
+    <h2><?php _e('Guests List', 'wi-rsvp'); ?></h2>
+</div>
+<form action="" method="post" id="bulk_action_form">
+    <?php wp_nonce_field('vw_rsvp_bulk_action'); ?>
+    <input type="hidden" id="bulk_delete_action" value="<?php echo $this->url('bulk-delete', array()); ?>" />
+    <input type="hidden" id="bulk_invite_action" value="<?php echo $this->url('send-invites', array()); ?>" />
+    <div class="tablenav">
+        <div class="alignleft actions">
+            <select id="bulk_action" name="bulk_action">
+                <option value="" selected="selected"><?php _e('Bulk Actions', 'rsvp'); ?></option>
+                <option value="invite"><?php _e('Send Invitation', 'rsvp'); ?></option>
+                <option value="delete"><?php _e('Delete', 'rsvp'); ?></option>
+            </select>
+            <input type="submit" value="<?php _e('Apply', 'wi-rsvp'); ?>" name="doaction" id="doaction" class="button-secondary action" onclick="if (!confirm('<?php _e('Are you sure', 'wi-rsvp'); ?>?')) { return false; };" />
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->url('add-guest', array()); ?>" class="small button-primary"><?php _e('+ Add guest', 'wi-rsvp'); ?></a>
+            <div style="display: inline-block;" id="validation">
+            <?php if (empty($this->options) || empty($this->options['rsvp_email_validation']) || $this->options['rsvp_email_validation'] != 'N') { ?>
+            &nbsp;&nbsp;&nbsp;&nbsp;RSVP Form Email validation is <strong>ENABLED</strong>! <a href="#" onclick="emailValidation('N');return false;">Click to disable</a>
+            <?php } else { ?>
+            &nbsp;&nbsp;&nbsp;&nbsp;RSVP Form Email validation is <strong>DISABLED</strong>! <a href="#" onclick="emailValidation('Y');return false;">Click to enable</a>
+            <?php } ?>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="tablenav" style="line-height: 30px;">
+        <?php if (!empty($this->stats['Y'])) { ?>
+            <b><?php echo _e('Confirmed menus', 'wi-rsvp'); ?>:</b>
+            <?php echo _e('Total', 'wi-rsvp'); ?>: <?php echo $this->stats['Y']->total; ?>&nbsp;&nbsp;
+            <?php echo _e('Kids', 'wi-rsvp'); ?>: <?php echo $this->stats['Y']->kids; ?>&nbsp;&nbsp;
+            <?php echo _e('Vegetarians', 'wi-rsvp'); ?>: <?php echo $this->stats['Y']->vegans; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php } ?>
+        <b><?php echo _e('Responses', 'wi-rsvp'); ?>:</b>
+        <?php echo _e('Yes', 'wi-rsvp'); ?>: <?php echo (!empty($this->stats['Y']) ? $this->stats['Y']->responses : 0); ?>&nbsp;&nbsp;
+        <?php echo _e('No', 'wi-rsvp'); ?>: <?php echo (!empty($this->stats['N']) ? $this->stats['N']->responses : 0); ?>&nbsp;&nbsp;
+        <?php echo _e('Pending', 'wi-rsvp'); ?>: <?php echo (!empty($this->stats['P']) ? $this->stats['P']->responses : 0); ?>
+       <div class="clear"></div>
+    </div>
+    <table class="widefat post fixed" cellspacing="0">
+        <thead>
+            <th scope="col" class="manage-column column-cb check-column" style=""><input type="checkbox" id="cb" /></th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('Last Name', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'last_name', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo ((empty($this->sort) && empty($this->dir)) || ($this->sort == 'last_name' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'last_name', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'last_name' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('First Name', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'first_name', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'first_name' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'first_name', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'first_name' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('Attending', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'attending', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'attending' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'attending', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'attending' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('Phone', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'phone', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'phone' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'phone', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'phone' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('Email', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'email', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'email' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'email', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'email' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('Total Menus', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'total', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'total' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'total', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'total' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style="width: 100px;"><?php _e('Kids', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'kids', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'kids' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'kids', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'kids' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+            <th scope="col" class="manage-column column-title" style=""><?php _e('Vegetarians', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'vegans', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'vegans' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'vegans', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'vegans' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div></th>
+            <th scope="col" class="manage-column column-title" style="width: 150px;"><?php _e('Message', 'wi-rsvp'); ?></a> &nbsp;
+            </th>
+            <th scope="col" class="manage-column column-title" style="width: 100px;"><?php _e('Invited', 'wi-rsvp'); ?></a> &nbsp;
+            <div style="display: inline-block;">
+                <a href="<?php echo $this->url('index', array('sort' => 'invited_datetime', 'dir'  => 'asc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/uparrow<?php echo (($this->sort == 'invited_datetime' && $this->dir == 'asc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+                <a href="<?php echo $this->url('index', array('sort' => 'invited_datetime', 'dir'  => 'desc')); ?>">
+                    <img src="<?php echo $this->images_url; ?>/downarrow<?php echo (($this->sort == 'invited_datetime' && $this->dir == 'desc') ? '_selected' : ''); ?>.gif" width="11" height="9" border="0"></a>
+            </div>
+            </th>
+        </thead>
+    </table>
+    <div style="overflow: auto;height: 450px;">
+        <table class="widefat post fixed" cellspacing="0">
+            <?php
+            $i                = 0;
+            $attending_status = array(
+                'Y' => __('Yes', 'wi-rsvp'),
+                'N' => __('No', 'wi-rsvp'),
+                'P' => __('Response Pending', 'wi-rsvp'),
+            );
+            foreach ($this->guests as $guest) {
+                ?>
+                <tr class="<?php echo (($i % 2 == 0) ? "alternate" : ""); ?> author-self">
+                    <td style="vertical-align: middle; width: 30px;">
+                        <input type="checkbox" name="guests[]" value="<?php echo $guest->id; ?>" />
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <a href="<?php echo $this->url('edit-guest', array('id' => $guest->id)); ?>">
+                            <?php echo esc_html($guest->last_name); ?>
+                        </a>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <a href="<?php echo $this->url('edit-guest', array('id' => $guest->id)); ?>">
+                            <?php echo esc_html($guest->first_name); ?>
+                        </a>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <?php echo $attending_status[$guest->attending]; ?>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <?php echo esc_html($guest->phone); ?>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <?php echo esc_html($guest->email); ?>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <?php echo esc_html($guest->total); ?>
+                    </td>
+                    <td style="vertical-align: middle; width: 100px;">
+                        <?php echo esc_html($guest->kids); ?>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <?php echo esc_html($guest->vegans); ?>
+                    </td>
+                    <td style="vertical-align: middle; width: 150px;">
+                        <?php echo esc_html($guest->message); ?>
+                    </td>
+                    <td style="vertical-align: middle; width: 100px;">
+                        <?php echo ($guest->invited_datetime == null ? 'Not invited' : date_i18n(get_option('date_format'), strtotime($guest->invited_datetime))); ?>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+</form>
+<?php
+$this->appendScript('vw-rsvp-admin-js', $this->scripts_url . '/admin.js');

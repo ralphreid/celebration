@@ -1,0 +1,110 @@
+<?php if (!empty($this->error)) { ?>
+    <div class="grid col-300">&nbsp;</div>
+    <div id="message" class="grid col-460 fit alert">
+        <div class="rsvp-error">
+            <?php echo $this->error; ?>
+        </div>
+    </div>
+<?php } ?>
+<?php if (!empty($this->success)) { ?>
+    <div id="message" class="success">
+        <div class="rsvp-success">
+            <?php echo $this->success; ?><br>
+        </div>
+    </div>
+<?php } else {
+    $first_name = !empty($this->guest->first_name) ? $this->guest->first_name : '';
+    $last_name  = !empty($this->guest->last_name) ? $this->guest->last_name : '';
+    $phone      = !empty($this->guest->phone) ? $this->guest->phone : '';
+    $email      = !empty($this->guest->email) ? $this->guest->email : '';
+    $attending  = !empty($this->guest->attending) ? $this->guest->attending : '';
+    $total      = !empty($this->guest->total) ? $this->guest->total : '';
+    $kids       = !empty($this->guest->kids) ? $this->guest->kids : '';
+    $vegans     = !empty($this->guest->vegans) ? $this->guest->vegans : '';
+    $message    = !empty($this->guest->message) ? $this->guest->message : '';
+    ?>
+    <form id="rsvp-form" action="<?php echo get_page_link(); ?>" method="POST">
+        <?php wp_nonce_field('vw_rsvp_index'); ?>
+        <div class="grid col-940">
+            <div class="grid col-300">
+                <label for="fname"><?php _e('First name', 'wi-rsvp'); ?>:</label>
+            </div>
+            <div class="grid col-460 fit">
+                <input type="text" id="first_name" name="first_name" value="<?php echo $first_name; ?>" />
+            </div>
+
+            <div class="grid col-300">
+                <label for="lname"><?php _e('Last name', 'wi-rsvp'); ?>:</label>
+            </div>
+            <div class="grid col-460 fit">
+                <input type="text" id="last_name" name="last_name" value="<?php echo $last_name; ?>"/>
+            </div>
+
+            <div class="grid col-300">
+                <label for="phone"><?php _e('Phone', 'wi-rsvp'); ?>:</label>
+            </div>
+            <div class="grid col-460 fit">
+                <input type="text" id="phone" name="phone" value="<?php echo $phone; ?>"/>
+            </div>
+
+            <div class="grid col-300">
+                <label for="email"><?php _e('Email', 'wi-rsvp'); ?>:</label>
+            </div>
+            <div class="grid col-460 fit">
+                <input type="text" id="email" name="email" value="<?php echo $email; ?>"/>
+            </div>
+
+            <div class="grid col-300">&nbsp;</div>
+            <div class="grid col-460 fit">
+                <input type="radio" name="attending" id="rsvp_yes" value="Y" <?php echo ($attending == 'Y' ? 'checked="checked"' : ''); ?> />
+                <label for="rsvp_yes" class="radio-label"> <?php _e('I will attend', 'wi-rsvp'); ?></label>
+                <br/>
+                <input type="radio" name="attending" id="rsvp_no" value="N" <?php echo ($attending == 'N' ? 'checked="checked"' : ''); ?> />
+                <label for="rsvp_no" class="radio-label"> <?php _e('Sorry, I will no be able to attend', 'wi-rsvp'); ?></label>
+            </div>
+            <div class="grid col-300">
+                <label for="message"><?php _e('Message', 'wi-rsvp'); ?>:</label>
+            </div>
+            <div class="grid col-460 fit">
+                <textarea id="message" name="message" class="textarea-small"><?php echo $message;?></textarea>
+            </div>
+
+            <div id="totals" style="display: none;">
+                <div class="grid col-300">
+                    <label for="nrpers"><?php _e('Nr. of persons attending', 'wi-rsvp'); ?></label>
+                </div>
+                <div class="grid col-460 fit">
+                    <input type="text" id="total" name="total" class="input-small" value="<?php echo $total; ?>"/>
+                </div>
+
+                <div class="grid col-300">
+                    <label for="kids"><?php _e('Nr. of kids menus', 'wi-rsvp'); ?></label>
+                </div>
+                <div class="grid col-460 fit">
+                    <input type="text" id="kids" name="kids" class="input-small" value="<?php echo $kids; ?>"/>
+                </div>
+
+                <div class="grid col-300">
+                    <label for="vegetarian"><?php _e('Nr. of vegetarian menus', 'wi-rsvp'); ?></label>
+                </div>
+                <div class="grid col-460 fit">
+                    <input type="text" id="vegans" name="vegans" class="input-small" value="<?php echo $vegans; ?>"/>
+                </div>
+            </div>
+            <?php if (!empty($this->captcha)) { ?>
+            <div class="grid col-300">
+                <label for="captcha"><?php _e('Input the code in the image', 'wi-rsvp');?></label>
+            </div>
+            <div class="grid col-460 fit">
+                <img src="<?php echo $this->captcha;?>" style="box-shadow: none; border: 0; background: #fff;">
+                <input type="text" id="captcha" name="captcha" style="width: 65px;" value="" />
+            </div>
+            <hr/>
+            <?php } ?>
+        </div>
+        <div>
+            <div class="grid col-300">&nbsp;</div>
+            <div class="grid col-460 fit"><input type="submit" value="<?php _e('Complete RSVP', 'wi-rsvp'); ?>"/></div>
+        </div>
+    </form>
+<?php } ?>

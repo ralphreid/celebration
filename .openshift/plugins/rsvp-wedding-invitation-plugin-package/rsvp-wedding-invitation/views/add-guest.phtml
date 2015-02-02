@@ -1,0 +1,75 @@
+<div id="icon-edit" class="icon32"><br /></div>
+<h2><?php _e('Add Guest', 'wi-rsvp');?></h2>
+<br>
+<?php if (!empty($this->error)) { ?>
+<div id="message" class="updated fade">
+    <?php echo $this->error;?>
+</div>
+<?php } ?>
+<?php if (!empty($this->success)) { ?>
+    <div id="message" class="updated">
+        <?php echo $this->success;?><br>
+    </div>
+    <br>
+    <a href="<?php echo $this->url('index', array());?>"><?php _e('Back to Guests list', 'wi-rsvp');?></a> |
+    <a href="<?php echo $this->url('add-guest', array());?>"><?php _e('Add another guest', 'wi-rsvp');?></a>
+<?php } else {
+    $first_name = !empty($this->guest->first_name) ? $this->guest->first_name : '';
+    $last_name  = !empty($this->guest->last_name) ? $this->guest->last_name : '';
+    $phone      = !empty($this->guest->phone) ? $this->guest->phone : '';
+    $email      = !empty($this->guest->email) ? $this->guest->email : '';
+    $attending  = !empty($this->guest->attending) ? $this->guest->attending : '';
+    $total      = !empty($this->guest->total) ? $this->guest->total : '';
+    $kids       = !empty($this->guest->kids) ? $this->guest->kids : '';
+    $vegans     = !empty($this->guest->vegans) ? $this->guest->vegans : '';
+    ?>
+    <form name="vw_rsvp_add_guest" action="<?php echo $this->url('add-guest', array());?>" method="post">
+        <?php wp_nonce_field('vw_rsvp_add_guest'); ?>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row"><label for="firstName"><?php _e('First Name', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="first_name" id="first_name" size="30" value="<?php echo esc_html($first_name); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Last Name', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="last_name" id="last_name" size="30" value="<?php echo esc_html($last_name); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Phone', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="phone" id="phone" size="30" value="<?php echo esc_html($phone); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Email', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="email" id="email" size="30" value="<?php echo esc_html($email); ?>" /></td>
+            </tr>
+            <tr>
+                <th scope="row"><label for="rsvpStatus"><?php _e('RSVP Status', 'wi-rsvp');?></label></th>
+                <td align="left">
+                    <select name="attending" id="attending" size="1">
+                        <option value="P" <?php echo ($attending == 'P' ? ' selected="selected"' : ''); ?>><?php _e('Pending', 'wi-rsvp');?></option>
+                        <option value="Y" <?php echo ($attending == 'Y' ? ' selected="selected"' : ''); ?>><?php _e('Yes', 'wi-rsvp');?></option>
+                        <option value="N" <?php echo ($attending == 'N' ? ' selected="selected"' : ''); ?>><?php _e('No', 'wi-rsvp');?></option>
+                    </select>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Total menus', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="total" id="total" size="30" value="<?php echo intval($total); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Kids menus', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="kids" id="kids" size="30" value="<?php echo intval($kids); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="lastName"><?php _e('Vegetarian menus', 'wi-rsvp');?>:</label></th>
+                <td align="left"><input type="text" name="vegans" id="vegans" size="30" value="<?php echo intval($vegans); ?>" /></td>
+            </tr>
+        </table>
+        <p class="submit">
+            <input type="submit" class="button-primary" value="<?php _e('Save', 'wi-rsvp'); ?>" />
+        </p>
+    </form>
+<?php
+}
+
+$this->appendScript('vw-rsvp-admin-js', $this->scripts_url. '/admin.js');
